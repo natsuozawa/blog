@@ -250,7 +250,12 @@ hr {
 }
 
 #gpmb_body_root {
-  padding-bottom: 24px;
+  padding-bottom: 64px;
+}
+
+#gpmb_body_root h1, #gpmb_body_root h2, #gpmb_body_root h3, #gpmb_body_root h4, #gpmb_body_root h5, #gpmb_body_root h6 {
+  margin-top: 16px;
+  margin-bottom: 4px;
 }
 
 #see {
