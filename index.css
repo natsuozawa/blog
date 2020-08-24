@@ -240,6 +240,11 @@ hr {
     } 
   }
 
+
+#gpmb_body_root {
+  padding-bottom: 24px;
+}
+
 #see {
   background-color: #555;
   background-position: center; 
