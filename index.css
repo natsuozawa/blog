@@ -240,6 +240,14 @@ hr {
     } 
   }
 
+#gpmb_title_root h1 {
+  font-size: 48px;
+}
+
+#gpmb_date_root p {
+  font-size: 24px;
+  padding-bottom: 16px;
+}
 
 #gpmb_body_root {
   padding-bottom: 24px;
