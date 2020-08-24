@@ -19,18 +19,19 @@
   </div>
   <div id="content">
     <div class="component">
-      <div class="big" id="gpmb_title_root"><h1>Connecting Node.js and MySQL on Google Cloud Platform Cloud SQL</h1></div>
-      <div class="message" id="gpmb_date_root"><p>August 24, 2020</p></div>
-      <div id="gpmb_body_root"><p><strong>Disclaimer</strong>: This original version of this article was written more than one year ago - the information contained in this article is not necessarily up to date. </p>
+      <div id="gpmb_title_root"><h1>Connecting Node.js and MySQL on Google Cloud Platform Cloud SQL</h1></div>
+      <div id="gpmb_date_root"><p>August 24, 2020</p></div>
+      <div id="gpmb_body_root"><p><strong>Disclaimer</strong>: This original version of this article was written more than one year ago - the information contained in this article is not necessarily up to date.</p>
+<p>This article is a translation of an article I wrote in Japanese. For the original version, see <a href="https://qiita.com/natsuozawa/items/9f68aa20078e90dc0a92">here</a>.</p>
 <h1 id="introduction">Introduction</h1>
-<p>Using Google Cloud's generous free credits and relatively easy-to-use interface, I deployed a Node.js application and attempted to connect to it a MySQL database. </p>
+<p>Using Google Cloud's generous free credits and relatively easy-to-use interface, I deployed a Node.js application and attempted to connect to it a MySQL database.</p>
 <p>I will write down the details in this article as Node.js was not available in the <a href="https://cloud.google.com/sql/docs/mysql/connect-app-engine">documentation</a>.</p>
 <p><strong>Important note</strong>: now the documentation has been updated to include steps for Node.js - please do not forget to refer to the documentation also.</p>
 <p>I used Google App Engine to host the Node.js application and Google Cloud SQL to manage the MySQL database.</p>
 <h2 id="fees">Fees</h2>
 <p>Although Google App Engine is mostly free for small instances, I was billed for using Cloud SQL.</p>
 <p>See the following links for more information.</p>
-<p>About free trial：<a href="https://cloud.google.com/free/?hl=ja">https://cloud.google.com/free/?hl=ja</a>　</p>
+<p>About free trial：<a href="https://cloud.google.com/free/?hl=ja">https://cloud.google.com/free/?hl=ja</a></p>
 <p>About Cloud SQL billing：<a href="https://cloud.google.com/sql/pricing?hl=ja">https://cloud.google.com/sql/pricing?hl=ja</a></p>
 <h1 id="instance-connection-name">Instance connection name</h1>
 <p>It is necessary to set the instance connection name in order to connect to Cloud SQL. The instance connection name is formatted as follows: <code>project_id:region:instance_id</code>.</p>
@@ -43,7 +44,7 @@ DB_USER="foobar"
 DB_PASSWORD="barbaz"
 DB_DATABASE="foobaz"</code></pre>
 <h1 id="nodejs-code">Node.js code</h1>
-<p>There are many client libraries for connecting Node.js to MySQL. I used the one called <code>mysql</code>. </p>
+<p>There are many client libraries for connecting Node.js to MySQL. I used the one called <code>mysql</code>.</p>
 <p>Because it is not possible to connect to Cloud SQL from App Engine with TCP, we have to use Unix Domain Socket.</p>
 <p>I used a package called <code>dotenv</code> to load the environment variables.</p>
 <pre><code>require('dotenv').config();
@@ -56,7 +57,7 @@ const connection = mysql.createConnection({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE 
 });</code></pre>
-<p>With App Engine Standard, the socket named <code>/cloudsql/&lt;instance connection name&gt;</code> is automatically provided - there is no need for further action.</p>
+<p>With App Engine Standard, the socket named <code>/cloudsql/&amp;lt;instance connection name&amp;gt;</code> is automatically provided - there is no need for further action.</p>
 <h2 id="using-pools">Using Pools</h2>
 <p>Pools for performance can be created similarly.</p>
 <pre><code>const pool = mysql.createPool({
@@ -87,8 +88,8 @@ const connection = mysql.createConnection({
   });</code></pre>
 <h1 id="completion">Completion</h1>
 <p>The connection should be complete after running <code>gcloud app deploy</code>.</p>
-<p>If the App Engine service and Cloud SQL instances are created under different projects, it is necessary to change some IAM settings.<br>
-Add either <code>Cloud SQL Admin</code>, <code>Cloud SQL Editor</code>, or <code>Cloud SQL Client</code> to the App Engine's service account.</p></div>
+<p>If the App Engine service and Cloud SQL instances are created under different projects, it is necessary to change some IAM settings.<br></p>
+<p>Add either <code>Cloud SQL Admin</code>, <code>Cloud SQL Editor</code>, or <code>Cloud SQL Client</code> to the App Engine's service account.</p></div>
     </div>
     <div id="see" class="last">
       <div class="blackbox">
