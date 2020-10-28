@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fixing HTTPS issues with custom subdomains on Github Pages| Natsu Ozawa Blog</title>
+  <meta name="description" content="Natsu Ozawa's personal blog">
+  <meta name="author" content="Natsu Ozawa">
+  <meta name="keywords" content="Natsu Ozawa, Natsu, Ozawa, 小澤夏彦, natsuozawa, blog">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;400&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/default.min.css">
+  <link type="text/css" rel="stylesheet" href="../index.css">
+</head>
+<body>
+  <div id="header-wrap">
+    <div id="header">
+      <h1 id="header-name"><a href="../">Natsu Ozawa</a></h1>
+    </div>
+  </div>
+  <div id="content">
+    <div class="component">
+      <div id="gpmb_title_root"><h1>Fixing HTTPS issues with custom subdomains on Github Pages</h1></div>
+      <div id="gpmb_date_root"><p>October 28, 2020</p></div>
+      <div id="gpmb_body_root"><h2 id="the-issue">The issue</h2>
+<p>I set up multiple Github Pages sites at around August 2020. Here was what I got working.</p>
+<ul>
+<li>The main page at the apex domain with HTTPS</li>
+<li>www subdomain redirecting to the main page, but the TLS certificate was invalid for www</li>
+<li>a few other subdomains pointing to different sites (like this blog), but the TLS certificates were invalid for these subdomains as well</li>
+</ul>
+<h2 id="github-doesnt-support-tls-for-multiple-domains">Github doesn't support TLS for multiple domains?</h2>
+<p>According to this <a href="https://github.community/t/does-github-pages-support-https-for-www-and-subdomains/10360">forum thread</a> many people were having issues setting up HTTPS on their subdomains, but why does the document say nothing about this?</p>
+<h2 id="but-apparently-it-does">But apparently it does</h2>
+<p>There was an easy workaround (as of October 2020): from the settings page of the repository, temporarily delete the custom domain/subdomain and click Save. Then, enter the same domain/subdomain again and click save. This will make Github generate a new TLS certficate just for the domain/subdomain. </p>
+<p><img src="https://i.imgur.com/DmBNkxc.png" alt="TLS certificate generation UI, as of October 2020"></p>
+<p>After the final step has been reached, wait a few minutes and refresh the page. Now you should be able to check "Enforce HTTPS". After several more minutes everything should be working again.</p></div>
+    </div>
+    <div id="see" class="last">
+      <div class="blackbox">
+        <h1 class="big">Thanks for reading.</h1>
+        <p class="message">Click <a href="../">here</a> to see new posts.</p>
+        <p class="message">日本語の投稿は<a href="https://qiita.com/natsuozawa">Qiita</a>にて行っています。</p>
+      </div>
+    </div>
+  </div>
+  <div class="before-footer"></div>
+  <div id="footer">
+    <div id="name">
+      <h1>Natsu Ozawa</h1>
+    </div>
+    <div id="navigator">
+      <ul class="nav">
+        <li><a href="../">Home</a></li>
+        <li><a href="https://natsuozawa.com">Website</a></li>
+        <li><a href="https://github.com/natsuozawa">Github</a></li>
+        <li><a href="https://resume.id/natsuozawa">Resume</a></li>
+      </ul>
+      <p>© 2018-2020 Natsu Ozawa</p>
+    </div>
+  </div>
+  <script src="../check.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
