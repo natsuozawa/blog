@@ -20,7 +20,7 @@
   <div id="content">
     <div class="component">
       <div id="gpmb_title_root"><h1>Connecting Node.js and MySQL on Google Cloud Platform Cloud SQL</h1></div>
-      <div id="gpmb_date_root"><p>August 24, 2020</p></div>
+      <div id="gpmb_date_root"><p>October 31, 2020</p></div>
       <div id="gpmb_body_root"><p><strong>Disclaimer</strong>: This original version of this article was written more than one year ago - the information contained in this article is not necessarily up to date.</p>
 <p>This article is a translation of an article I wrote in Japanese. For the original version, see <a href="https://qiita.com/natsuozawa/items/9f68aa20078e90dc0a92">here</a>.</p>
 <h1 id="introduction">Introduction</h1>
@@ -31,8 +31,8 @@
 <h2 id="fees">Fees</h2>
 <p>Although Google App Engine is mostly free for small instances, I was billed for using Cloud SQL.</p>
 <p>See the following links for more information.</p>
-<p>About free trial：<a href="https://cloud.google.com/free/?hl=ja">https://cloud.google.com/free/?hl=ja</a></p>
-<p>About Cloud SQL billing：<a href="https://cloud.google.com/sql/pricing?hl=ja">https://cloud.google.com/sql/pricing?hl=ja</a></p>
+<p>About free trial：<a href="https://cloud.google.com/free/">https://cloud.google.com/free/</a></p>
+<p>About Cloud SQL billing：<a href="https://cloud.google.com/sql/pricing">https://cloud.google.com/sql/pricing</a></p>
 <h1 id="instance-connection-name">Instance connection name</h1>
 <p>It is necessary to set the instance connection name in order to connect to Cloud SQL. The instance connection name is formatted as follows: <code>project_id:region:instance_id</code>.</p>
 <p>The instance connection name is displayed under instance details, inside the box "connect to this instance". Copy and paste it as an environment variable.</p>
@@ -57,7 +57,7 @@ const connection = mysql.createConnection({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE 
 });</code></pre>
-<p>With App Engine Standard, the socket named <code>/cloudsql/&amp;lt;instance connection name&amp;gt;</code> is automatically provided - there is no need for further action.</p>
+<p>With App Engine Standard, the socket named <code>/cloudsql/&amp;amp;lt;instance connection name&amp;amp;gt;</code> is automatically provided - there is no need for further action.</p>
 <h2 id="using-pools">Using Pools</h2>
 <p>Pools for performance can be created similarly.</p>
 <pre><code>const pool = mysql.createPool({
