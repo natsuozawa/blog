@@ -7,7 +7,7 @@
   <meta name="description" content="Natsu Ozawa's personal blog">
   <meta name="author" content="Natsu Ozawa">
   <meta name="keywords" content="Natsu Ozawa, Natsu, Ozawa, 小澤夏彦, natsuozawa, blog">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;400&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/default.min.css">
   <link type="text/css" rel="stylesheet" href="../index.css">
 </head>
@@ -55,15 +55,15 @@ const connection = mysql.createConnection({
   socketPath: `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE 
+  database: process.env.DB_DATABASE
 });</code></pre>
 <p>With App Engine Standard, the socket named <code>/cloudsql/&amp;amp;lt;instance connection name&amp;amp;gt;</code> is automatically provided - there is no need for further action.</p>
 <h2 id="using-pools">Using Pools</h2>
 <p>Pools for performance can be created similarly.</p>
 <pre><code>const pool = mysql.createPool({
-  user: process.env.DB_USER, 
-  password: process.env.DB_PASS, 
-  database: process.env.DB_NAME, 
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME,
   socketPath: `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`
 });</code></pre>
 <h2 id="limit-on-the-number-of-connections">Limit on the number of connections</h2>
@@ -76,14 +76,14 @@ const connection = mysql.createConnection({
 <p>If you want to connect to a local database instance using TCP.</p>
 <pre><code>const pool = process.env.NODE_ENV === 'production'
   ? mysql.createPool({
-    user: process.env.DB_USER, 
-    password: process.env.DB_PASS, 
-    database: process.env.DB_NAME, 
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME,
     socketPath: `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`
   }) : mysql.createPool({
-    user: process.env.DB_USER, 
-    password: process.env.DB_PASS, 
-    database: process.env.DB_NAME, 
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME,
     host: 'localhost'
   });</code></pre>
 <h1 id="completion">Completion</h1>
@@ -111,7 +111,7 @@ const connection = mysql.createConnection({
         <li><a href="https://github.com/natsuozawa">Github</a></li>
         <li><a href="https://resume.id/natsuozawa">Resume</a></li>
       </ul>
-      <p>© 2018-2020 Natsu Ozawa</p>
+      <p>© 2018-2024 Natsu Ozawa</p>
     </div>
   </div>
   <script src="../check.js"></script>
